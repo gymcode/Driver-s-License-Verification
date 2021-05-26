@@ -111,12 +111,12 @@ class App extends Component {
           </div>
         </nav>
 
-        <div className={"d-flex justify-content-center"}>
+        <div style={{fontSize: 30, marginTop: "5%"}} className={"d-flex justify-content-center"}>
           Driver's License Verification System
         </div>
-        <div className={"d-flex justify-content-center"}>ERC 725 and 735 concept</div>
+        <div style={{fontSize: 30}} className={"d-flex justify-content-center"}>ERC 725 and 735 concept</div>
 
-        <div className="container border border-1 shadow p-3 bg-body rounded" style={{marginTop: "8%"}}>
+        <div className="container border border-1 shadow p-3 bg-body rounded" style={{marginTop: "4%"}}>
           {!this.state.preloaded ? null : (
             <div className="alert alert-info mt-3">
               Logged in with a sample account!
