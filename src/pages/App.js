@@ -73,7 +73,8 @@ class App extends Component {
               onClick={() => this.setState({ toggled: false })}
             >
               <a href="http://localhost:3344/#/">DriLVerify</a>
-              {/* https://identity.vboss.tech" */}
+              {/* <a href="https://identity.vboss.tech">DriLVerify</a> */}
+              
             </Link>
             
             <button
@@ -110,7 +111,12 @@ class App extends Component {
           </div>
         </nav>
 
-        <div className="container">
+        <div className={"d-flex justify-content-center"}>
+          Driver's License Verification System
+        </div>
+        <div className={"d-flex justify-content-center"}>ERC 725 and 735 concept</div>
+
+        <div className="container border border-1 shadow p-3 mt-6 bg-body rounded">
           {!this.state.preloaded ? null : (
             <div className="alert alert-info mt-3">
               Logged in with a sample account!
@@ -133,7 +139,7 @@ class App extends Component {
             <Route component={Identity} />
           </Switch>
           <div className="footer">
-            
+           {/* footer is there is one   */}
           </div>
         </div>
       </div>

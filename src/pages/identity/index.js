@@ -306,7 +306,7 @@ class Identity extends Component {
               </tbody>
             </table>
           </div>
-          <div className="">
+          <div className="col-md-6">
             <Switch>
               <Route path="/identity/:identity" component={IdentityDetail} />
               <Route path="/claim-checker/:id" component={ClaimCheckerDetail} />
