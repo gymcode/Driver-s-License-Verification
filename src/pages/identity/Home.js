@@ -6,8 +6,7 @@ class Home extends Component {
     return (
       <div>
         <div className="mb-3">
-          <i className="fa fa-arrow-left mr-2" />Select a contract for more
-          information
+          <i className="fa fa-arrow-left mr-2" />For more information, Choose a contract
         </div>
         <hr />
         <div className="mb-2">
