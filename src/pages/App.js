@@ -65,14 +65,15 @@ class App extends Component {
     return (
       <div>
         <Init onClose={() => this.props.history.push('/')} />
-        <nav className="navbar navbar-expand-sm navbar-light">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
           <div className="container">
             <Link
               to="/"
               className="navbar-brand mr-3"
               onClick={() => this.setState({ toggled: false })}
             >
-              <a href="https://identity.vboss.tech">Digital Identity ERC-725</a>
+              <a href="http://localhost:3344/#/">DriLVerify</a>
+              {/* https://identity.vboss.tech" */}
             </Link>
             
             <button
@@ -112,7 +113,7 @@ class App extends Component {
         <div className="container">
           {!this.state.preloaded ? null : (
             <div className="alert alert-info mt-3">
-              Logged in with demo account!
+              Logged in with a sample account!
               <a
                 className="close"
                 href="#"
@@ -132,23 +133,7 @@ class App extends Component {
             <Route component={Identity} />
           </Switch>
           <div className="footer">
-            <div className="powered-by">
-              <a href="https://vboss.tech">
-                <img src="images/logo.png" />
-              </a>
-            </div>
-            <div className="middle">
-              &copy;{' 2018 '}
-              <a className="ml-1" href="https://vboss.tech">
-                vBOSS-BnB Bot & Blockchain
-              </a>
-            </div>
-            <div className="right">
-              <a href="https://github.com/vbosstech/digital-identity">
-                <i className="fa fa-lg fa-github" />
-              </a>
-              <Versions />
-            </div>
+            
           </div>
         </div>
       </div>
