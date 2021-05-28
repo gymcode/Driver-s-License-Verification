@@ -1,6 +1,6 @@
 var HTML = require('./html')
 
-const ClaimType = '8'; // has Driver's License
+const ClaimType = '12'; // has Driver's License
 
 module.exports = function dummyService(app, { web3, driverApp }) {
 

@@ -7,6 +7,11 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
       new Promise(resolve => {
         const liveServices = [
           {
+            uri: `${oauthLink}/driver`,
+            icon: 'driver',
+            claimType: '8'
+          },
+          {
             uri: `${oauthLink}/fb-auth`,
             icon: 'facebook',
             claimType: '3'
