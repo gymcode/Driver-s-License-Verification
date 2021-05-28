@@ -7,6 +7,7 @@ const serveStatic = require('serve-static')
 global.XMLHttpRequest = require('xhr2')
 global.window = { Promise, WebSocket, crypto }
 
+var driver = require('./_driver')
 var simple = require('./_simple')
 var facebook = require('./_facebook')
 var google = require('./_google')
@@ -42,6 +43,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
 })
 
+driver(app, Config)
 simple(app, Config)
 facebook(app, Config)
 google(app, Config)

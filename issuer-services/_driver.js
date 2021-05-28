@@ -1,10 +1,10 @@
 var HTML = require('./html')
 
-const ClaimType = '7'; // has Driver's License
+const ClaimType = '8'; // has Driver's License
 
-module.exports = function dummyService(app, { web3, simpleApp }) {
+module.exports = function dummyService(app, { web3, driverApp }) {
 
-  app.get('/simple-auth', async (req, res) => {
+  app.get('/driver-auth', async (req, res) => {
     var issuer = req.query.issuer,
       target = req.query.target
 
@@ -16,7 +16,7 @@ module.exports = function dummyService(app, { web3, simpleApp }) {
       res.send(HTML('No issuer identity contract provided'))
       return
     }
-    if (!simpleApp.claimSignerKey) {
+    if (!driverApp.claimSignerKey) {
       res.send(HTML('No private key specified.'))
       return
     }
@@ -24,7 +24,7 @@ module.exports = function dummyService(app, { web3, simpleApp }) {
     var rawData = 'Verified OK'
     var hexData = web3.utils.asciiToHex(rawData)
     var hashed = web3.utils.soliditySha3(target, ClaimType, hexData)
-    var signedData = await web3.eth.accounts.sign(hashed, simpleApp.claimSignerKey)
+    var signedData = await web3.eth.accounts.sign(hashed, driverApp.claimSignerKey)
 
     res.send(
       HTML(

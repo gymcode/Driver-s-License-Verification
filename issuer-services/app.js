@@ -2,6 +2,7 @@ var express = require('express')
 var session = require('express-session')
 var Web3 = require('web3')
 
+var driver = require('./_driver')
 var simple = require('./_simple')
 var facebook = require('./_facebook')
 var twitter = require('./_twitter')
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
   res.send('Issuer Services')
 })
 
+driver(app, Config)
 simple(app, Config)
 facebook(app, Config)
 twitter(app, Config)

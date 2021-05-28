@@ -1,6 +1,7 @@
 var Web3 = require('web3')
 
 var Config = require('./config.json')
+var driver = require('./_driver')
 var facebook = require('./_facebook')
 var google = require('./_google')
 var github = require('./_github')
@@ -10,6 +11,7 @@ var linkedin = require('./_linkedin')
 
 module.exports = function (app) {
   Config.web3 = new Web3()
+  driver(app, Config)
   facebook(app, Config)
   google(app, Config)
   github(app, Config)
