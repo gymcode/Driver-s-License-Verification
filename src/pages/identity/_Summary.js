@@ -290,16 +290,16 @@ class IdentitySummary extends Component {
           </tr>
         </thead>
         <tbody>
-          {signerServices.map((ss, idx) => console.log(ss.claimType) 
-          // (
-          //   <tr key={idx}>
-          //     <td className="wb">{ss.uri}</td>
-          //     <td className="text-center">
-          //       <i className={`fa fa-${ss.icon}`} />
-          //     </td>
-          //     <td className="no-wrap">{claimType(ss.claimType)}</td>
-          //   </tr>
-          // )
+          {signerServices.map((ss, idx) =>  
+          (
+            <tr key={idx}>
+              <td className="wb">{ss.uri}</td>
+              <td className="text-center">
+                <i className={`fa fa-${ss.icon}`} />
+              </td>
+              <td className="no-wrap">{claimType(ss.claimType)}</td>
+            </tr>
+          )
           )}
         </tbody>
       </table>

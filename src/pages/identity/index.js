@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
+import {MdPermIdentity} from 'react-icons/md'
+import {BsBuilding} from 'react-icons/bs'
+import {VscUnverified} from 'react-icons/vsc'
 
 import {
   deployIdentityContract,
@@ -62,8 +65,10 @@ class Identity extends Component {
             >
               <thead>
                 <tr>
-                  <th className="border-top-0">
-                    <i className="fa fa-user mr-2" />Identities
+                  <th className="">
+                    <div className={"d-flex"}>
+                     <MdPermIdentity size={22}/> <div className={"pl-2"}>Identities</div> 
+                    </div>
                     {!identities.length ? null : (
                       <a
                         href="#"
@@ -100,7 +105,7 @@ class Identity extends Component {
                     <td colSpan={2} className="p-2">
                       <button
                         href="#"
-                        className="btn btn-sm btn-outline-primary"
+                        className="btn btn-sm btn-outline-success"
                         onClick={e => {
                           e.preventDefault()
                           this.setState({
@@ -152,11 +157,9 @@ class Identity extends Component {
               <thead>
                 <tr>
                   <th>
-                    <i className="fa fa-certificate mr-2" />Claim Issuers
                     {!certifiers.length ? null : (
                       <a
                         href="#"
-                        className="ml-2"
                         onClick={e => {
                           e.preventDefault()
                           this.setState({
@@ -165,7 +168,9 @@ class Identity extends Component {
                           })
                         }}
                       >
-                        <i className="fa fa-plus" />
+                        <div className={'d-flex'}>
+                          <BsBuilding size={22}/> <div className={"pl-2"}>Claim Issuers</div>
+                        </div>  
                       </a>
                     )}
                   </th>
@@ -183,7 +188,7 @@ class Identity extends Component {
                     <td colSpan={3} className="p-2">
                       <button
                         href="#"
-                        className="btn btn-sm btn-outline-primary"
+                        className="btn btn-sm btn-outline-success"
                         onClick={e => {
                           e.preventDefault()
                           this.setState({
@@ -235,7 +240,9 @@ class Identity extends Component {
               <thead>
                 <tr>
                   <th>
-                    <i className="fa fa-lock mr-2" />Claim Checkers
+                    <div className={"d-flex"}>
+                      <VscUnverified size={22}/> <div className={"pl-2"}>Claim Checkers</div>
+                    </div>
                     {!this.props.verifiers.length ? null : (
                       <a
                         href="#"
@@ -263,7 +270,7 @@ class Identity extends Component {
                     <td colSpan={2} className="p-2">
                       <button
                         href="#"
-                        className="btn btn-sm btn-outline-primary"
+                        className="btn btn-sm btn-outline-success"
                         onClick={e => {
                           e.preventDefault()
                           this.setState({ newVerifier: true })
