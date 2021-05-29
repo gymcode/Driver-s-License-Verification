@@ -67,7 +67,7 @@ class Identity extends Component {
                 <tr>
                   <th className="">
                     <div className={"d-flex"}>
-                     <MdPermIdentity size={22}/> <div className={"pl-2"}>Identities</div> 
+                     <MdPermIdentity size={22}/> <div className={"pl-2"}>License Holder</div> 
                     </div>
                     {!identities.length ? null : (
                       <a
@@ -89,7 +89,7 @@ class Identity extends Component {
                     className="border-top-0 text-center"
                     style={{ width: 80 }}
                   >
-                    Addr
+                    Address
                   </th>
                   <th
                     className="border-top-0 text-center"
@@ -114,7 +114,7 @@ class Identity extends Component {
                           })
                         }}
                       >
-                        <i className="fa fa-plus" /> Add an Identity
+                        Add an Identity
                       </button>
                     </td>
                   </tr>
@@ -160,6 +160,7 @@ class Identity extends Component {
                     {!certifiers.length ? null : (
                       <a
                         href="#"
+                        className={"text-decoration-none"}
                         onClick={e => {
                           e.preventDefault()
                           this.setState({
@@ -168,14 +169,14 @@ class Identity extends Component {
                           })
                         }}
                       >
-                        <div className={'d-flex'}>
+                        <div className={'d-flex mt-3'}>
                           <BsBuilding size={22}/> <div className={"pl-2"}>Claim Issuers</div>
                         </div>  
                       </a>
                     )}
                   </th>
                   <th className="text-center" style={{ width: 80 }}>
-                    Addr
+                    Address
                   </th>
                   <th className="text-center" style={{ width: 80 }}>
                     Owner
@@ -189,6 +190,7 @@ class Identity extends Component {
                       <button
                         href="#"
                         className="btn btn-sm btn-outline-success"
+                        style={{width: "10%"}}
                         onClick={e => {
                           e.preventDefault()
                           this.setState({
@@ -240,8 +242,8 @@ class Identity extends Component {
               <thead>
                 <tr>
                   <th>
-                    <div className={"d-flex"}>
-                      <VscUnverified size={22}/> <div className={"pl-2"}>Claim Checkers</div>
+                    <div className={"d-flex mt-4"}>
+                      <VscUnverified size={22}/> <div className={"pl-2"}>Claim Verifier</div>
                     </div>
                     {!this.props.verifiers.length ? null : (
                       <a
@@ -257,7 +259,7 @@ class Identity extends Component {
                     )}
                   </th>
                   <th className="text-center" style={{ width: 80 }}>
-                    Addr
+                    Address
                   </th>
                   <th className="text-center" style={{ width: 80 }}>
                     Owner
@@ -276,7 +278,7 @@ class Identity extends Component {
                           this.setState({ newVerifier: true })
                         }}
                       >
-                        <i className="fa fa-plus" /> Add a Claim Checker
+                        Add a Claim Checker
                       </button>
                     </td>
                   </tr>
