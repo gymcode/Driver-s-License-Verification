@@ -115,7 +115,7 @@ class App extends Component {
         <div style={{fontSize: 40, fontWeight: '900', color: "#1f3528"}} className={"d-flex justify-content-center"}>
           Driver's License <span style={{color: "#58b983", paddingLeft: 10, paddingRight: 10}}> Verification </span> System
         </div>
-        <div style={{fontSize: 17, fontWeight: "lighter", color: '#999'}} className={"d-flex justify-content-center"}>ERC 725 and 735 concept</div>
+        <div style={{fontSize: 17, fontWeight: "lighter", color: '#999'}} className={"d-flex justify-content-center"}>Using ERC 725 and 735 concept</div>
 
         <div className="shadow" style={{marginTop: "3%"}}>
           {/* {!this.state.preloaded ? null : (
@@ -192,16 +192,16 @@ require('react-styl')(`
     .btn-sm
       padding: 0.125rem 0.375rem
   .contained
-    padding-top: 6%
-    height: 100vh
+    padding-top: 4%
+    height: 120vh
     background-color: #f0f1f5;
     background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     
   .navbar
     border-bottom: 1px solid #E5E9EF;
-    -webkit-box-shadow: -2px 0px 7px -2px rgba(7,25,38,0.30); 
-    box-shadow: -2px 0px 7px -2px rgba(7,25,38,0.30);
+    -webkit-box-shadow: -2px 0px 7px -2px rgba(31,53,40,0.30); 
+    box-shadow: -2px 0px 7px -2px rgba(31,53,40,0.30);
   .navbar-light .navbar-text .dropdown-item.active,
   .navbar-light .navbar-text .dropdown-item:active
     color: #fff;
@@ -224,19 +224,20 @@ require('react-styl')(`
   .btn_btn
     width: 16%
     color: white
+    background: #58b983
     border: 1px solid 
     border-color: #58b983
     border-radius: 10px
   .footer
     display: flex
     justify-content: between
-    color: #999;
+    color: #000;
     margin: 1rem 0;
     padding-top: 1rem;
     
     font-size: 14px;
     a
-      color: #999;
+      color: #000;
     .middle
       flex: 1
       text-align: center
