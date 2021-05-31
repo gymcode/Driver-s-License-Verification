@@ -66,7 +66,7 @@ class App extends Component {
       <div>
         <Init onClose={() => this.props.history.push('/')} />
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-          <div className="container">
+          <div className="container-fluid">
             <Link
               to="/"
               className="navbar-brand mr-3"
@@ -116,8 +116,8 @@ class App extends Component {
         </div>
         <div style={{fontSize: 30}} className={"d-flex justify-content-center"}>ERC 725 and 735 concept</div>
 
-        <div className="container border border-1 shadow p-3 bg-body rounded" style={{marginTop: "4%"}}>
-          {!this.state.preloaded ? null : (
+        <div className="jumbotron container border border-1 shadow p-3 bg-body rounded" style={{marginTop: "4%"}}>
+          {/* {!this.state.preloaded ? null : (
             <div className="alert alert-info mt-3">
               Logged in with a sample account!
               <a
@@ -131,7 +131,7 @@ class App extends Component {
                 &times;
               </a>
             </div>
-          )}
+          )} */}
           <Switch>
             <Route path="/console" component={Console} />
             <Route path="/identity/:address" component={Identity} />
