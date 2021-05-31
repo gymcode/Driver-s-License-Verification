@@ -15,7 +15,7 @@ export default class AccountChooser extends Component {
     return (
       <div>
         <Dropdown
-          style={{ position: 'relative' }}
+          style={{ position: 'relative' }}          
           linkClass=" nav-link"
           label={
             <>

@@ -65,7 +65,7 @@ class App extends Component {
     return (
       <div>
         <Init onClose={() => this.props.history.push('/')} />
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        {/* <nav className="navbar navbar-expand-sm ">
           <div className="container-fluid">
             <Link
               to="/"
@@ -73,7 +73,7 @@ class App extends Component {
               onClick={() => this.setState({ toggled: false })}
             >
               <a href="http://localhost:3344/#/">DriLVerify</a>
-              {/* <a href="https://identity.vboss.tech">DriLVerify</a> */}
+              <a href="https://identity.vboss.tech">DriLVerify</a>
               
             </Link>
             
@@ -109,14 +109,15 @@ class App extends Component {
               </ul>
             </div>
           </div>
-        </nav>
+        </nav> */}
 
-        <div style={{fontSize: 30, marginTop: "5%"}} className={"d-flex justify-content-center"}>
-          Driver's License Verification System
+        <div className={"contained"}>
+        <div style={{fontSize: 40, fontWeight: '900', color: "#1f3528"}} className={"d-flex justify-content-center"}>
+          Driver's License <span style={{color: "#58b983", paddingLeft: 10, paddingRight: 10}}> Verification </span> System
         </div>
-        <div style={{fontSize: 30}} className={"d-flex justify-content-center"}>ERC 725 and 735 concept</div>
+        <div style={{fontSize: 17, fontWeight: "lighter", color: '#999'}} className={"d-flex justify-content-center"}>ERC 725 and 735 concept</div>
 
-        <div className="jumbotron container border border-1 shadow p-3 bg-body rounded" style={{marginTop: "4%"}}>
+        <div className="shadow" style={{marginTop: "3%"}}>
           {/* {!this.state.preloaded ? null : (
             <div className="alert alert-info mt-3">
               Logged in with a sample account!
@@ -132,15 +133,32 @@ class App extends Component {
               </a>
             </div>
           )} */}
-          <Switch>
-            <Route path="/console" component={Console} />
-            <Route path="/identity/:address" component={Identity} />
-            <Route path="/claim-checker/:address" component={Identity} />
-            <Route component={Identity} />
-          </Switch>
-          <div className="footer">
-           {/* footer is there is one   */}
+          <div>
+            <Switch>
+              <Route path="/console" component={Console} />
+              <Route path="/identity/:address" component={Identity} />
+              <Route path="/claim-checker/:address" component={Identity} />
+              <Route component={Identity} />
+            </Switch>
           </div>
+        </div>
+        <div className="footer">
+           {/* footer is there is one   */}
+          <div className="hello">
+            <div className="btn_btn">
+            {this.props.account &&
+                this.props.wallet && (
+                  <AccountChooser
+                    balance={this.props.balance}
+                    wallet={this.props.wallet}
+                    account={this.props.account}
+                    selectAccount={a => this.props.selectAccount(a)}
+                    setCurrency={c => this.props.setCurrency(c)}
+                  />
+              )}
+            </div>
+          </div>   
+        </div>
         </div>
       </div>
     )
@@ -173,22 +191,49 @@ require('react-styl')(`
       border-top: 0
     .btn-sm
       padding: 0.125rem 0.375rem
+  .contained
+    padding-top: 6%
+    height: 100vh
+    background-color: #f0f1f5;
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    
   .navbar
     border-bottom: 1px solid #E5E9EF;
+    -webkit-box-shadow: -2px 0px 7px -2px rgba(7,25,38,0.30); 
+    box-shadow: -2px 0px 7px -2px rgba(7,25,38,0.30);
   .navbar-light .navbar-text .dropdown-item.active,
   .navbar-light .navbar-text .dropdown-item:active
     color: #fff;
   .pointer
     cursor: pointer
+  .shadow
+    -webkit-box-shadow: -1px 2px 80px -30px rgba(7,25,38,0.31);
+    box-shadow: -1px 2px 80px -30px rgba(7,25,38,0.31);
+    background: white
+    margin-right: 12%
+    margin-left: 12%
+    padding: 3%
   .no-wrap
     white-space: nowrap
+  .hello
+    width: 88%
+    display: flex
+    color: red
+    justify-content: flex-end
+  .btn_btn
+    width: 16%
+    color: white
+    border: 1px solid 
+    border-color: #58b983
+    border-radius: 10px
   .footer
     display: flex
-    align-items: center;
+    justify-content: between
     color: #999;
     margin: 1rem 0;
     padding-top: 1rem;
-    border-top: 1px solid #eee;
+    
     font-size: 14px;
     a
       color: #999;
