@@ -29,8 +29,8 @@ class NewVerifier extends Component {
   render() {
     return (
       <Modal
-        style={{ maxWidth: 375 }}
-        className="p-3"
+        style={{ maxWidth: 450 }}
+        className="p-5"
         shouldClose={this.state.shouldClose}
         submitted={this.state.submitted}
         onClose={() => this.props.onClose()}
@@ -38,8 +38,8 @@ class NewVerifier extends Component {
         onPressEnter={() => this.onDeploy()}
       >
         <Loading show={this.state.loading} />
-        <div className="font-weight-bold mb-3">
-          Deploy a new Claim Checker Contract:
+        <div className="font-weight-bold mb-4" style={{fontSize: 20}}>
+          Deploy a new Claim Verifier Contract
         </div>
         {!this.props.identities.length && (
           <div className="alert alert-warning py-1 px-2 mt-2">
@@ -105,7 +105,7 @@ class NewVerifier extends Component {
           </tbody>
         </table>
         <div className="text-right mt-2">
-          <button className="btn btn-primary" onClick={() => this.onDeploy()}>
+          <button className="btn btn-success" onClick={() => this.onDeploy()}>
             Deploy
           </button>
         </div>

@@ -281,7 +281,7 @@ class Identity extends Component {
                           this.setState({ newVerifier: true })
                         }}
                       >
-                        Add a Claim Checker
+                        Add a Claim Verifier
                       </button>
                     </td>
                   </tr>
