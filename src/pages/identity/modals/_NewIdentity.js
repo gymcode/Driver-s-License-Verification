@@ -149,6 +149,7 @@ class NewIdentity extends Component {
           {this.state.preSign ? null : (
             <a
               href="#"
+              style={{color: "#58b983", textDecoration: "none"}}
               onClick={e => {
                 e.preventDefault()
                 this.setState({ preSign: true })
@@ -158,7 +159,7 @@ class NewIdentity extends Component {
             </a>
           )}
           <button
-            className="btn btn-primary ml-auto"
+            className="btn btn-success ml-auto"
             onClick={() => this.onDeploy()}
           >
             Deploy
