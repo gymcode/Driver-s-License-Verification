@@ -59,17 +59,17 @@ class NewIdentity extends Component {
         <Modal {...modalProps}>
           <div className="d-flex flex-column mt-2">
             <button
-              className="btn btn-outline-primary mb-2"
+              className="btn btn-outline-success mb-2"
               onClick={() => this.setState({ mode: 'create' })}
             >
               Add New Identity
             </button>
-            <button
-              className="btn btn-outline-primary mb-2"
+            {/* <button
+              className="btn btn-outline-success mb-2"
               onClick={() => this.setState({ mode: 'import' })}
             >
               Import Existing Identity
-            </button>
+            </button> */}
           </div>
         </Modal>
       )
