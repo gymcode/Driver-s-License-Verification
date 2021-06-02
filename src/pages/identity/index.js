@@ -105,6 +105,7 @@ class Identity extends Component {
                     <td colSpan={2} className="p-2">
                       <button
                         href="#"
+                        style={{width: 200, height: 40, color: "#000", background: "#58b983"}}
                         className="btn btn-sm btn-outline-success"
                         onClick={e => {
                           e.preventDefault()
@@ -114,7 +115,7 @@ class Identity extends Component {
                           })
                         }}
                       >
-                        Add an Identity
+                       Add an Identity
                       </button>
                     </td>
                   </tr>
@@ -272,6 +273,7 @@ class Identity extends Component {
                     <td colSpan={2} className="p-2">
                       <button
                         href="#"
+                        style={{width: 200, height: 40, color: "#000", background: "#58b983"}}
                         className="btn btn-sm btn-outline-success"
                         onClick={e => {
                           e.preventDefault()
