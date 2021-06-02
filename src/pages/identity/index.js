@@ -161,6 +161,7 @@ class Identity extends Component {
                     {!certifiers.length ? null : (
                       <a
                         href="#"
+                        style={{color: "#000"}}
                         className={"text-decoration-none"}
                         onClick={e => {
                           e.preventDefault()
