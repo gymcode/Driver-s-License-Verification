@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route, NavLink } from 'react-router-dom'
+import {FcUnlock, FcLock} from 'react-icons/fc'
 
 import {
   deployIdentityContract,
@@ -65,8 +66,24 @@ class IdentityDetails extends Component {
                   e.preventDefault()
                 }}
               >
+                <div className={"d-flex"}>
+                
+                {
+                  isOwner ?
+                  (
+                    <>
+                      <FcUnlock size={30} style={{marginRight: 10}}/>
+                    </>
+                  )
+                  : 
+                  (
+                    <>
+                      <FcLock size={30} style={{marginRight: 10}}/>
+                    </>
+                  )
+                }
                 {identity.name}
-                <i
+                {/* <i
                   className={`account-lock fa fa-${
                     isOwner
                       ? 'unlock'
@@ -79,7 +96,8 @@ class IdentityDetails extends Component {
                           this.props.selectAccount(identity.owner)
                         }
                   }
-                />
+                /> */}
+                </div>
               </a>
             </li>
             <li className="nav-item">

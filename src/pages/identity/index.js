@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import {MdPermIdentity} from 'react-icons/md'
 import {BsBuilding} from 'react-icons/bs'
 import {VscUnverified} from 'react-icons/vsc'
+import {FcLock, FcUnlock} from 'react-icons/fc'
 
 import {
   deployIdentityContract,
@@ -216,14 +217,24 @@ class Identity extends Component {
                     className={this.rowCls(identity)}
                   >
                     <td>
-                      <i
-                        className={`row-fa fa fa-${
+                      <div className={"d-flex"}>
+                        {
                           this.props.wallet.activeAddress === identity.owner
-                            ? 'un'
-                            : ''
-                        }lock`}
-                      />
+                          ? 
+                          (
+                            <>
+                              <FcUnlock size={20} style={{marginRight: 10}}/>
+                            </>
+                          )
+                          : 
+                          (
+                            <>
+                              <FcLock size={20} style={{marginRight: 10}} />
+                            </>
+                          )
+                        }                    
                       {identity.name}
+                      </div>
                     </td>
                     <td className="text-center">
                       {!identity.address ? '' : identity.address.substr(0, 6)}

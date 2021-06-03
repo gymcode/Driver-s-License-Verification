@@ -6,7 +6,7 @@ var facebook = require('./_facebook')
 var google = require('./_google')
 var github = require('./_github')
 var simple = require('./_simple')
-var twitter = require('./_twitter')
+// var twitter = require('./_twitter')
 var linkedin = require('./_linkedin')
 
 module.exports = function (app) {
@@ -16,6 +16,6 @@ module.exports = function (app) {
   google(app, Config)
   github(app, Config)
   simple(app, Config)
-  twitter(app, Config)
+  // twitter(app, Config)
   linkedin(app, Config)
 }

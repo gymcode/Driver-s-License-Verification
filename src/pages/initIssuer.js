@@ -16,11 +16,11 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
             icon: 'facebook',
             claimType: '3'
           },
-          {
-            uri: `${oauthLink}/twitter-auth`,
-            icon: 'twitter',
-            claimType: '4'
-          },
+          // {
+          //   uri: `${oauthLink}/twitter-auth`,
+          //   icon: 'twitter',
+          //   claimType: '4'
+          // },
           {
             uri: `${oauthLink}/github-auth`,
             icon: 'github',
