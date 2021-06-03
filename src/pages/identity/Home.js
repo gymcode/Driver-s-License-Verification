@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {CgPushLeft} from 'react-icons/cg'
 
 class Home extends Component {
 
@@ -6,16 +7,16 @@ class Home extends Component {
     return (
       <div>
         <div className="mb-3">
-          <i className="fa fa-arrow-left mr-2" />For more information, Choose a contract
+          <CgPushLeft size={15} style={{marginRight: 10}}/>For more information, Choose a contract
         </div>
         <hr />
         <div className="mb-2">
-          <div className="font-weight-bold">Identity</div>
-          Controlled by Keys. Has Claims, can add Claims to other identities.
+          <div className="font-weight-bold">Identity</div>      
+          These are controlled by keys which contain claims (has Valid Driver's License) to other identities
         </div>
         <div className="mb-2">
           <div className="font-weight-bold">Claim Issuer</div>
-          Also an Identity. Trusted by Claim Checkers to issue valid claims.
+          Idenities Trusted by claim checkers to issue valid licenses
         </div>
         <div className="mb-2">
           <div className="font-weight-bold">Claim Checker</div>
@@ -24,7 +25,8 @@ class Home extends Component {
         </div>
         <div className="mb-2">
           <div className="font-weight-bold">Claim</div>
-          Some data on one Identity that provably came from another Identity.An individual has the right Driver's License
+          {/* Some data on one Identity that provably came from another Identity.An individual has the right Driver's License */}
+          Claim: User/ Driver has a valid Driver's License
         </div>
       </div>
     ) 
