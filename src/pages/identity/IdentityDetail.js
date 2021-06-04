@@ -44,6 +44,7 @@ class IdentityDetails extends Component {
     var identity = this.props.identities.find(
       i => i.address === this.props.activeIdentity
     )
+      // console.log(identity)
     if (!identity) {
       return null
     }

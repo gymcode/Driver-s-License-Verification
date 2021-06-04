@@ -145,7 +145,7 @@ class IdentitySummary extends Component {
       }
       return (
         <button
-          className="btn btn-sm btn-outline-primary"
+          className="btn btn-sm btn-outline-success"
           onClick={() => this.props.onAddClaim()}
         >
           <i className="fa fa-plus" /> Add Claim
@@ -276,6 +276,7 @@ class IdentitySummary extends Component {
   renderServices() {
     const { signerServices } = this.props.identity
     console.log(this.props.identity)
+    
     if (!signerServices || !signerServices.length) {
       return null
     }

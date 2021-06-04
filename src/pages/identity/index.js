@@ -5,6 +5,7 @@ import {MdPermIdentity} from 'react-icons/md'
 import {BsBuilding} from 'react-icons/bs'
 import {VscUnverified} from 'react-icons/vsc'
 import {FcLock, FcUnlock} from 'react-icons/fc'
+import {AiFillLock, AiFillUnlock} from 'react-icons/ai'
 
 import {
   deployIdentityContract,
@@ -70,7 +71,7 @@ class Identity extends Component {
                     <div className={"d-flex"}>
                      <MdPermIdentity size={22}/> <div className={"pl-2"}>License Holder</div> 
                     </div>
-                    {!identities.length ? null : (
+                    {/* {!identities.length ? null : (
                       <a
                         href="#"
                         className="ml-2"
@@ -84,7 +85,7 @@ class Identity extends Component {
                       >
                         <i className="fa fa-plus" />
                       </a>
-                    )}
+                    )} */}
                   </th>
                   <th
                     className="border-top-0 text-center"
@@ -131,14 +132,24 @@ class Identity extends Component {
                     className={this.rowCls(identity)}
                   >
                     <td>
-                      <i
-                        className={`row-fa fa fa-${
+                      <div className={"d-flex"}>
+                        {
                           this.props.wallet.activeAddress === identity.owner
-                            ? 'un'
-                            : ''
-                        }lock`}
-                      />
+                          ? 
+                          (
+                            <>
+                              <AiFillUnlock size={20} style={{marginRight: 10}}/>
+                            </>
+                          )
+                          : 
+                          (
+                            <>
+                              <AiFillLock size={20} style={{marginRight: 10}} />
+                            </>
+                          )
+                        }                    
                       {identity.name}
+                      </div>
                     </td>
                     <td className="text-center">
                       {!identity.address ? '' : identity.address.substr(0, 6)}
@@ -258,7 +269,7 @@ class Identity extends Component {
                     <div className={"d-flex mt-4"}>
                       <VscUnverified size={22}/> <div className={"pl-2"}>Claim Verifier</div>
                     </div>
-                    {!this.props.verifiers.length ? null : (
+                    {/* {!this.props.verifiers.length ? null : (
                       <a
                         href="#"
                         className="ml-2"
@@ -269,7 +280,7 @@ class Identity extends Component {
                       >
                         <i className="fa fa-plus" />
                       </a>
-                    )}
+                    )} */}
                   </th>
                   <th className="text-center" style={{ width: 80 }}>
                     Address
@@ -308,14 +319,24 @@ class Identity extends Component {
                       className={this.rowCls(verifier)}
                     >
                       <td>
-                        <i
-                          className={`row-fa fa fa-${
-                            this.props.wallet.activeAddress === verifier.owner
-                              ? 'un'
-                              : ''
-                          }lock`}
-                        />
-                        {verifier.name}
+                      <div className={"d-flex"}>
+                        {
+                           this.props.wallet.activeAddress === verifier.owner
+                          ? 
+                          (
+                            <>
+                              <AiFillUnlock size={20} style={{marginRight: 10}}/>
+                            </>
+                          )
+                          : 
+                          (
+                            <>
+                              <AiFillLock size={20} style={{marginRight: 10}} />
+                            </>
+                          )
+                        }                    
+                      {verifier.name}
+                      </div>
                       </td>
                       <td className="text-center">
                         {!verifier.address ? '' : verifier.address.substr(0, 6)}
