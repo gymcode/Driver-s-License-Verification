@@ -3,7 +3,7 @@
 var OAuth = require('oauth').OAuth
 var HTML = require('./html')
 
-const ClaimType = 4 // Has Twitter
+// const ClaimType = 4 // Has Twitter
 
 module.exports = function twitter(app, { web3, twitterApp, baseUrl }) {
   var twitterOAuth = new OAuth(

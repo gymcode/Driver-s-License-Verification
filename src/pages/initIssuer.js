@@ -39,11 +39,11 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
         ]
 
         const localServices = [
-          {
-            uri: `${oauthLink}/twitter-auth`,
-            icon: 'twitter',
-            claimType: '4'
-          },
+          // {
+          //   uri: `${oauthLink}/twitter-auth`,
+          //   icon: 'twitter',
+          //   claimType: '4'
+          // },
           {
             uri: `${oauthLink}/google-auth`,
             icon: 'google',

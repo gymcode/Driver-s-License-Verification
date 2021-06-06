@@ -62,11 +62,17 @@ class Event extends Component {
               claimType: '3'
             },
             {
-              // uri: 'https://identity.vboss.tech/twitter-auth',
-              uri: 'https://erc725.originprotocol.com/twitter-auth',
-              icon: 'twitter',
-              claimType: '4'
+              // uri: 'https://identity.vboss.tech/fb-auth',
+              uri: 'https://erc725.originprotocol.com/fb-auth',
+              icon: 'driver',
+              claimType: '12'
             },
+            // {
+            //   // uri: 'https://identity.vboss.tech/twitter-auth',
+            //   uri: 'https://erc725.originprotocol.com/twitter-auth',
+            //   icon: 'twitter',
+            //   claimType: '4'
+            // },
             {
               // uri: 'https://identity.vboss.tech/github-auth',
               uri: 'https://erc725.originprotocol.com/github-auth',
