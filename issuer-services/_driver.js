@@ -1,48 +1,105 @@
+// https://console.developers.google.com/apis/credentials
+
+var OAuth = require('oauth').OAuth2
 var HTML = require('./html')
+var superagent = require('superagent')
 
-const ClaimType = '12'; // has Driver's License
+const ClaimType = 12 // Has driver's license
 
-module.exports = function dummyService(app, { web3, driverApp }) {
+module.exports = function google(app, { web3, driverApp, baseUrl }) {
+  // const redirect_uri = `${baseUrl}/driver-auth-response`
+  const redirect_uri = `$http://localhost:8080/login/callback`
 
-  app.get('/driver-auth', async (req, res) => {
-    var issuer = req.query.issuer,
-      target = req.query.target
+  var driverOAuth = new OAuth(
+    driverApp.client_id,
+    'https://dev-82680403.okta.com'
+  )
+  
 
-    if (!target) {
-      res.send(HTML('No target identity contract provided'))
+  app.get('/dev-82680403.okta.com', (req, res) => {
+    if (!req.query.target) {
+      res.send('No target identity contract provided')
       return
     }
-    if (!issuer) {
-      res.send(HTML('No issuer identity contract provided'))
-      return
-    }
-    if (!driverApp.claimSignerKey) {
-      res.send(HTML('No private key specified.'))
+    if (!req.query.issuer) {
+      res.send('No issuer identity contract provided')
       return
     }
 
-    var rawData = 'Verified OK'
-    var hexData = web3.utils.asciiToHex(rawData)
-    var hashed = web3.utils.soliditySha3(target, ClaimType, hexData)
-    var signedData = await web3.eth.accounts.sign(hashed, driverApp.claimSignerKey)
+    req.session.targetIdentity = req.query.target
+    req.session.issuer = req.query.issuer
+    req.session.state = web3.utils.randomHex(8)
 
-    res.send(
-      HTML(
-        `<div class="mb-2">This example authentication service returns some signed data which can be added to a claim</div>
-        <div class="mb-2"><b>Issuer:</b> ${issuer}</div>
-        <div class="mb-2"><b>Target:</b> ${target}</div>
+    var authURL = driverOAuth.getAuthorizeUrl({
+      redirect_uri,
+      scope: 'https://www.googleapis.com/auth/userinfo.profile',
+      state: req.session.state,
+      response_type: 'code'
+    })
+
+    res.redirect(authURL)
+  })
+
+  app.get(
+    '/driver-auth-response',
+    (req, res, next) => {
+      driverOAuth.getOAuthAccessToken(
+        req.query.code,
+        {
+          redirect_uri,
+          grant_type: 'authorization_code'
+        },
+        function(e, access_token, refresh_token, results) {
+          if (e) {
+            next(e)
+          } else if (results.error) {
+            next(results.error)
+          } else {
+            req.access_token = access_token
+            next()
+          }
+        }
+      )
+    },
+    (req, res, next) => {
+      superagent
+        .get('https://dev-82680403.okta.com/oauth2/default')
+        .query({
+          alt: 'json',
+          access_token: req.access_token
+        })
+        .then(response => {
+          req.driverUser = response.body
+          next()
+        })
+    },
+    async (req, res) => {
+      // var data = JSON.stringify({ user_id: req.googleUser.id })
+
+      var rawData = 'Verified OK'
+      var hexData = web3.utils.asciiToHex(rawData)
+      var hashed = web3.utils.soliditySha3(req.session.targetIdentity, ClaimType, hexData)
+      req.signedData = await web3.eth.accounts.sign(hashed, driverApp.claimSignerKey)
+
+      res.send(
+        HTML(`
+        <div class="mb-2">Successfully signed claim:</div>
+        <div class="mb-2"><b>Issuer:</b> ${req.session.issuer}</div>
+        <div class="mb-2"><b>Target:</b> ${req.session.targetIdentity}</div>
         <div class="mb-2"><b>Data:</b> ${rawData}</div>
-        <div class="mb-2"><b>Signature:</b> ${signedData.signature}</div>
-        <div class="mb-2"><b>Hash:</b> ${signedData.messageHash}</div>
+        <div class="mb-2"><b>Signature:</b> ${req.signedData.signature}</div>
+        <div class="mb-2"><b>Hash:</b> ${req.signedData.messageHash}</div>
         <div><button class="btn btn-primary" onclick="window.done()">OK</button></div>
         <script>
           window.done = function() {
             window.opener.postMessage('signed-data:${
-              signedData.signature
-            }:${rawData}:7', '*')
+              req.signedData.signature
+            }:${rawData}:${ClaimType}', '*')
           }
-        </script>`
+        </script>`)
       )
-    )
-  })
+    }
+  )
 }
+
+

@@ -63,7 +63,7 @@ class Event extends Component {
             },
             {
               // uri: 'https://identity.vboss.tech/fb-auth',
-              uri: 'https://erc725.originprotocol.com/fb-auth',
+              uri: 'https://erc725.originprotocol.com/dev-82680403.okta.com',
               icon: 'driver',
               claimType: '12'
             },
