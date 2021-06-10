@@ -7,16 +7,19 @@ var superagent = require('superagent')
 const ClaimType = 12 // Has driver's license
 
 module.exports = function google(app, { web3, driverApp, baseUrl }) {
-  // const redirect_uri = `${baseUrl}/driver-auth-response`
-  const redirect_uri = `$http://localhost:8080/login/callback`
-
+  const redirect_uri = `${baseUrl}/driver-auth-response`
+  // const redirect_uri = `$http://localhost:8080/login/callback`
+  
   var driverOAuth = new OAuth(
     driverApp.client_id,
-    'https://dev-82680403.okta.com'
+    driverApp.secret,
+    'https://dev-34487505.okta.com',
+    '/oauth2/default/v1/authorize', 
+    '/oauth2/default/v1/access_token'
   )
   
 
-  app.get('/dev-82680403.okta.com', (req, res) => {
+  app.get('/driver-auth', (req, res) => {
     if (!req.query.target) {
       res.send('No target identity contract provided')
       return
@@ -32,11 +35,11 @@ module.exports = function google(app, { web3, driverApp, baseUrl }) {
 
     var authURL = driverOAuth.getAuthorizeUrl({
       redirect_uri,
-      scope: 'https://www.googleapis.com/auth/userinfo.profile',
+      scope: ['Driver\'s_License_No'],
       state: req.session.state,
       response_type: 'code'
     })
-
+    console.log(authURL)
     res.redirect(authURL)
   })
 
@@ -63,7 +66,7 @@ module.exports = function google(app, { web3, driverApp, baseUrl }) {
     },
     (req, res, next) => {
       superagent
-        .get('https://dev-82680403.okta.com/oauth2/default')
+        .get('https://api.dev-34487505.okta.com/user')
         .query({
           alt: 'json',
           access_token: req.access_token

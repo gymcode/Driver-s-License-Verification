@@ -39,7 +39,7 @@ module.exports = function github(app, { web3, githubApp, baseUrl }) {
       scope: ['user'],
       state: req.session.state
     })
-
+    console.log(authURL)
     res.redirect(authURL)
   })
 
