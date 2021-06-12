@@ -55,29 +55,29 @@ class AddClaim extends Component {
           </div>
           <div className="d-flex flex-column">
             <button
-              className="btn btn-outline-primary mb-2"
+              className="btn btn-outline-success mb-2"
               onClick={() => this.setState({ mode: 'issuer' })}
             >
               Get Claim from Issuer
             </button>
             <button
-              className="btn btn-outline-primary mb-2"
+              className="btn btn-outline-success mb-2"
               onClick={() => this.setState({ mode: 'self' })}
             >
               Add Self-Claim
             </button>
-            <button
+            {/* <button
               className="btn btn-outline-primary mb-2"
               onClick={() => this.setState({ mode: 'other' })}
             >
               Add Claim to another Identity
-            </button>
-            <button
+            </button> */}
+            {/* <button
               className="btn btn-outline-primary"
               onClick={() => this.setState({ mode: 'manual' })}
             >
               Add Claim Manually
-            </button>
+            </button> */}
           </div>
         </Modal>
       )
