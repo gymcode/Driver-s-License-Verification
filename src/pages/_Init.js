@@ -48,7 +48,7 @@ class Event extends Component {
       setTimeout(() => {
         this.props.selectAccount(walletAccounts[1])
         this.props.deployIdentityContract(
-          'IdentityIssuer',
+          'License_Issuer',
           'certifier',
           // 'https://identity.vboss.tech/fb-auth',
           'https://erc725.originprotocol.com/fb-auth',

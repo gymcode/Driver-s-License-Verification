@@ -184,7 +184,7 @@ class Identity extends Component {
                         }}
                       >
                         <div className={'d-flex mt-3'}>
-                          <BsBuilding size={22}/> <div className={"pl-2"}>Claim Issuers</div>
+                          <BsBuilding size={22}/> <div className={"pl-2"}>Claim Issuer (DVLA)</div>
                         </div>  
                       </a>
                     )}
@@ -267,7 +267,7 @@ class Identity extends Component {
                 <tr>
                   <th>
                     <div className={"d-flex mt-4"}>
-                      <VscUnverified size={22}/> <div className={"pl-2"}>Claim Verifier</div>
+                      <VscUnverified size={22}/> <div className={"pl-2"}>Claim Verifier(Police) </div>
                     </div>
                     {/* {!this.props.verifiers.length ? null : (
                       <a
