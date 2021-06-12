@@ -44,7 +44,7 @@ class Event extends Component {
         this.props.sendFromNode(nodeAccounts[0].hash, walletAccounts[2], '2')
       }, 500)
     } else if (this.stage === 3 && balances[walletAccounts[2]].eth === '0') {
-      this.next('✔ 4. Add IdentityIssuer certifier...')
+      this.next('✔ 4. Add License_Issuer certifier...')
       setTimeout(() => {
         this.props.selectAccount(walletAccounts[1])
         this.props.deployIdentityContract(
@@ -73,12 +73,12 @@ class Event extends Component {
             //   icon: 'twitter',
             //   claimType: '4'
             // },
-            // {
-            //   // uri: 'https://identity.vboss.tech/github-auth',
-            //   uri: 'https://erc725.originprotocol.com/github-auth',
-            //   icon: 'github',
-            //   claimType: '5'
-            // },
+            {
+              // uri: 'https://identity.vboss.tech/github-auth',
+              uri: 'https://erc725.originprotocol.com/github-auth',
+              icon: 'github',
+              claimType: '5'
+            },
             {
               // uri: 'https://identity.vboss.tech/google-auth',
               uri: 'https://erc725.originprotocol.com/google-auth',
@@ -101,7 +101,7 @@ class Event extends Component {
     ) {
       this.next('✔ 5. Add Claim Signer key...')
       setTimeout(() => {
-        var fb = this.props.identity.identities.find(i => i.name === 'IdentityIssuer')
+        var fb = this.props.identity.identities.find(i => i.name === 'License_Issuer')
         this.props.addKey({
           purpose: '3',
           keyType: '1',
