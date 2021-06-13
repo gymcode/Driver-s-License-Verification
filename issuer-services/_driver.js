@@ -8,7 +8,7 @@ const ClaimType = 12 // Has driver's license
 
 module.exports = function google(app, { web3, driverApp, baseUrl }) {
   const redirect_uri = `${baseUrl}/driver-auth-response`
-  // const redirect_uri = `$http://localhost:8080/login/callback`
+  
   
   var driverOAuth = new OAuth(
     driverApp.client_id,
