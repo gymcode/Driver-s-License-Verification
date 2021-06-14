@@ -9,13 +9,10 @@ const ClaimType = 12 // Has driver's license
 module.exports = function google(app, { web3, driverApp, baseUrl }) {
   const redirect_uri = `${baseUrl}/driver-auth-response`
   
-  
   var driverOAuth = new OAuth(
     driverApp.client_id,
     driverApp.secret,
-    'https://dev-34487505.okta.com',
-    '/oauth2/default/v1/authorize', 
-    '/oauth2/default/v1/access_token'
+    'http://localhost:8080/authorization-code/callback'
   )
   
 
@@ -29,8 +26,9 @@ module.exports = function google(app, { web3, driverApp, baseUrl }) {
       return
     }
 
+    console.log(req.query.target)
     req.session.targetIdentity = req.query.target
-    req.session.issuer = req.query.issuer
+    req.session.issuer = 'https://dev-34487505.okta.com/oauth2/default'
     req.session.state = web3.utils.randomHex(8)
 
     var authURL = driverOAuth.getAuthorizeUrl({
