@@ -4,6 +4,8 @@ var OAuth = require('oauth').OAuth2
 var HTML = require('./html')
 var superagent = require('superagent')
 
+console.log(OAuth)
+
 const ClaimType = 5 // Has GitHub
 
 module.exports = function github(app, { web3, githubApp, baseUrl }) {
@@ -20,7 +22,7 @@ module.exports = function github(app, { web3, githubApp, baseUrl }) {
   )
 
   app.get('/github-auth', (req, res) => {
-  
+    console.log(res)
     if (!req.query.target) {
       res.send('No target identity contract provided')
       return

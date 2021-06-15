@@ -26,19 +26,21 @@ module.exports = function google(app, { web3, driverApp, baseUrl }) {
       return
     }
 
-    console.log(req.query.target)
-    req.session.targetIdentity = req.query.target
-    req.session.issuer = 'https://dev-34487505.okta.com/oauth2/default'
-    req.session.state = web3.utils.randomHex(8)
+    console.log("this is a request party")
 
-    var authURL = driverOAuth.getAuthorizeUrl({
-      redirect_uri,
-      scope: ['Driver\'s_License_No'],
-      state: req.session.state,
-      response_type: 'code'
-    })
-    console.log(authURL)
-    res.redirect(authURL)
+    // console.log(req.query.target)
+    // req.session.targetIdentity = req.query.target
+    // req.session.issuer = 'https://dev-34487505.okta.com/oauth2/default'
+    // req.session.state = web3.utils.randomHex(8)
+
+    // var authURL = driverOAuth.getAuthorizeUrl({
+    //   redirect_uri,
+    //   scope: ['Driver\'s_License_No'],
+    //   state: req.session.state,
+    //   response_type: 'code'
+    // })
+    // console.log(authURL)
+    // res.redirect(authURL)
   })
 
   app.get(
@@ -64,7 +66,7 @@ module.exports = function google(app, { web3, driverApp, baseUrl }) {
     },
     (req, res, next) => {
       superagent
-        .get('https://api.dev-34487505.okta.com/user')
+        .get('https://api.appruve.co/v1/verifications/gh/driver_license')
         .query({
           alt: 'json',
           access_token: req.access_token

@@ -2,6 +2,7 @@ let waitLastDeploy = Promise.resolve()
 let waitLastAddKey = Promise.resolve()
 
 export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
+  console.log(oauthLink)
   waitLastDeploy = waitLastDeploy.then(
     () =>
       new Promise(resolve => {
