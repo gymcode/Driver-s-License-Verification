@@ -14,10 +14,6 @@ var google = require('./_google')
 var github = require('./_github')
 var linkedin = require('./_linkedin')
 
-console.log(driver)
-console.log(google)
-console.log(github)
-
 var Web3 = require('./public/vendor/web3.min')
 
 let Config = require('./config.json')

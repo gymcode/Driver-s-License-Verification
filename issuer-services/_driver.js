@@ -7,14 +7,15 @@ var superagent = require('superagent')
 const ClaimType = 12 // Has driver's license
 
 module.exports = function google(app, { web3, driverApp, baseUrl }) {
-  const redirect_uri = `${baseUrl}/driver-auth-response`
-  
-  var driverOAuth = new OAuth(
-    driverApp.client_id,
-    driverApp.secret,
-    'http://localhost:8080/authorization-code/callback'
+  const redirect_uri = `${baseUrl}/google-auth-response`
+
+  var googleOAuth = new OAuth(
+    googleApp.client_id,
+    googleApp.secret,
+    'https://accounts.google.com',
+    '/o/oauth2/auth',
+    '/o/oauth2/token'
   )
-  
 
   app.get('/driver-auth', (req, res) => {
     if (!req.query.target) {
@@ -26,27 +27,24 @@ module.exports = function google(app, { web3, driverApp, baseUrl }) {
       return
     }
 
-    console.log("this is a request party")
+    req.session.targetIdentity = req.query.target
+    req.session.issuer = req.query.issuer
+    req.session.state = web3.utils.randomHex(8)
 
-    // console.log(req.query.target)
-    // req.session.targetIdentity = req.query.target
-    // req.session.issuer = 'https://dev-34487505.okta.com/oauth2/default'
-    // req.session.state = web3.utils.randomHex(8)
+    var authURL = googleOAuth.getAuthorizeUrl({
+      redirect_uri,
+      scope: 'https://www.googleapis.com/auth/userinfo.profile',
+      state: req.session.state,
+      response_type: 'code'
+    })
 
-    // var authURL = driverOAuth.getAuthorizeUrl({
-    //   redirect_uri,
-    //   scope: ['Driver\'s_License_No'],
-    //   state: req.session.state,
-    //   response_type: 'code'
-    // })
-    // console.log(authURL)
-    // res.redirect(authURL)
+    res.redirect(authURL)
   })
 
   app.get(
-    '/driver-auth-response',
+    '/google-auth-response',
     (req, res, next) => {
-      driverOAuth.getOAuthAccessToken(
+      googleOAuth.getOAuthAccessToken(
         req.query.code,
         {
           redirect_uri,
@@ -66,16 +64,28 @@ module.exports = function google(app, { web3, driverApp, baseUrl }) {
     },
     (req, res, next) => {
       superagent
-        .get('https://api.appruve.co/v1/verifications/gh/driver_license')
+        .get('https://www.googleapis.com/oauth2/v1/userinfo')
         .query({
           alt: 'json',
           access_token: req.access_token
         })
         .then(response => {
-          req.driverUser = response.body
+          req.googleUser = response.body
           next()
         })
     },
+    // (req, res, next) => {
+    //   superagent
+    //     .get('https://api.appruve.co/v1/verifications/gh/driver_license')
+    //     .query({
+    //       alt: 'json',
+    //       access_token: req.access_token
+    //     })
+    //     .then(response => {
+    //       req.driverUser = response.body
+    //       next()
+    //     })
+    // },
     async (req, res) => {
       // var data = JSON.stringify({ user_id: req.googleUser.id })
 

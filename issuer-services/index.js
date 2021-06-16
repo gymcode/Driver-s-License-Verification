@@ -9,10 +9,6 @@ var simple = require('./_simple')
 // var twitter = require('./_twitter')
 var linkedin = require('./_linkedin')
 
-console.log(driver)
-console.log(google)
-console.log(github)
-
 module.exports = function (app) {
   Config.web3 = new Web3()
   driver(app, Config)

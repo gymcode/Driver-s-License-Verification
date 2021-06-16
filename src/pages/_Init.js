@@ -85,12 +85,12 @@ class Event extends Component {
               icon: 'google',
               claimType: '6'
             },
-            // {
-            //   // uri: 'https://identity.vboss.tech/linkedin-auth',
-            //   uri: 'https://erc725.originprotocol.com/linkedin-auth',
-            //   icon: 'linkedin',
-            //   claimType: '9'
-            // }
+            {
+              // uri: 'https://identity.vboss.tech/linkedin-auth',
+              uri: 'https://erc725.originprotocol.com/linkedin-auth',
+              icon: 'linkedin',
+              claimType: '9'
+            }
           ]
         )
       }, 500)
