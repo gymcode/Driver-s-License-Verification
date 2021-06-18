@@ -7,14 +7,14 @@ const serveStatic = require('serve-static')
 global.XMLHttpRequest = require('xhr2')
 global.window = { Promise, WebSocket, crypto }
 
-var driver = require('./_driver')
+// var driver = require('./_driver')
 var simple = require('./_simple')
 var facebook = require('./_facebook')
 var google = require('./_google')
 var github = require('./_github')
 var linkedin = require('./_linkedin')
 
-var Web3 = require('./public/vendor/web3.min')
+var Web3 = require('./public/vendor/web3.min.js')
 
 let Config = require('./config.json')
 Config.web3 = new Web3(Config.provider)
@@ -38,11 +38,12 @@ app.use(
   })
 )
 
-app.get('/', (req, res) => {
+app.get('/suo', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
+  console.log("locomotive")
 })
 
-driver(app, Config)
+// driver(app, Config)
 simple(app, Config)
 facebook(app, Config)
 google(app, Config)
