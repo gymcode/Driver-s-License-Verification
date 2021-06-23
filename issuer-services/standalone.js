@@ -40,7 +40,6 @@ app.use(
 
 app.get('/suo', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
-  console.log("locomotive")
 })
 
 // driver(app, Config)

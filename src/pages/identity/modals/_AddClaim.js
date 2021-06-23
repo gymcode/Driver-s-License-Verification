@@ -231,6 +231,7 @@ class AddClaim extends Component {
 
   renderOfferedClaims() {
     const { certifiers, identity } = this.props
+    console.log(certifiers)
     if (!certifiers || !certifiers.length) {
       return null
     }
@@ -273,11 +274,19 @@ class AddClaim extends Component {
     e.stopPropagation()
     e.preventDefault()
 
+    console.log(e.currentTarget)
+
     var href = `${e.currentTarget.href}?target=${
       this.props.identity.address
     }&issuer=${identity.address}`
+    
+    // create an auth system and deploy on firebase and link to this syste  m
+    // using local host server for now 
+    var href2 = `http://localhost:3000/?target=${
+      this.props.identity.address
+    }&issuer=${identity.address}`
 
-    var w = window.open(href, '', 'width=650,height=500')
+    var w = window.open(href2, '', 'width=650,height=500')
 
     const finish = e => {
       if (String(e.data).match(/^signed-data:/)) {

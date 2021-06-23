@@ -7,11 +7,11 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
     () =>
       new Promise(resolve => {
         const liveServices = [
-          {
-            uri: `${oauthLink}/driver-auth`,
-            icon: 'driver',
-            claimType: '12'
-          },
+          // {
+          //   uri: `${oauthLink}/driver-auth`,
+          //   icon: 'driver',
+          //   claimType: '12'
+          // },
           {
             uri: `${oauthLink}/fb-auth`,
             icon: 'facebook',
@@ -22,11 +22,11 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
           //   icon: 'twitter',
           //   claimType: '4'
           // },
-          {
-            uri: `${oauthLink}/github-auth`,
-            icon: 'github',
-            claimType: '5'
-          },
+          // {
+          //   uri: `${oauthLink}/github-auth`,
+          //   icon: 'github',
+          //   claimType: '5'
+          // },
           {
             uri: `${oauthLink}/google-auth`,
             icon: 'google',

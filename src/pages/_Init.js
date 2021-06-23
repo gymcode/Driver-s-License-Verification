@@ -73,24 +73,24 @@ class Event extends Component {
             //   icon: 'twitter',
             //   claimType: '4'
             // },
-            {
-              // uri: 'https://identity.vboss.tech/github-auth',
-              uri: 'https://erc725.originprotocol.com/github-auth',
-              icon: 'github',
-              claimType: '5'
-            },
-            {
-              // uri: 'https://identity.vboss.tech/google-auth',
-              uri: 'https://erc725.originprotocol.com/google-auth',
-              icon: 'google',
-              claimType: '6'
-            },
-            {
-              // uri: 'https://identity.vboss.tech/linkedin-auth',
-              uri: 'https://erc725.originprotocol.com/linkedin-auth',
-              icon: 'linkedin',
-              claimType: '9'
-            }
+            // {
+            //   // uri: 'https://identity.vboss.tech/github-auth',
+            //   uri: 'https://erc725.originprotocol.com/github-auth',
+            //   icon: 'github',
+            //   claimType: '5'
+            // },
+            // {
+            //   // uri: 'https://identity.vboss.tech/google-auth',
+            //   uri: 'https://erc725.originprotocol.com/google-auth',
+            //   icon: 'google',
+            //   claimType: '6'
+            // },
+            // {
+            //   // uri: 'https://identity.vboss.tech/linkedin-auth',
+            //   uri: 'https://erc725.originprotocol.com/linkedin-auth',
+            //   icon: 'linkedin',
+            //   claimType: '9'
+            // }
           ]
         )
       }, 500)
