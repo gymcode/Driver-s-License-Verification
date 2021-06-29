@@ -63,9 +63,9 @@ class Event extends Component {
             // },
             {
               // uri: 'https://identity.vboss.tech/fb-auth',
-              uri: 'https://erc725.originprotocol.com/driver-auth',
+              uri: 'http://localhost:3000',
               icon: 'driver',
-              claimType: '12'
+              claimType: '6'
             },
             // {
             //   // uri: 'https://identity.vboss.tech/twitter-auth',
@@ -79,12 +79,12 @@ class Event extends Component {
             //   icon: 'github',
             //   claimType: '5'
             // },
-            // {
-            //   // uri: 'https://identity.vboss.tech/google-auth',
-            //   uri: 'https://erc725.originprotocol.com/google-auth',
-            //   icon: 'google',
-            //   claimType: '6'
-            // },
+            {
+              // uri: 'https://identity.vboss.tech/google-auth',
+              uri: 'https://erc725.originprotocol.com/google-auth',
+              icon: 'google',
+              claimType: '6'
+            },
             // {
             //   // uri: 'https://identity.vboss.tech/linkedin-auth',
             //   uri: 'https://erc725.originprotocol.com/linkedin-auth',
