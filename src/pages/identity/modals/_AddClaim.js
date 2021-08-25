@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 
 import Modal from 'components/Modal'
@@ -231,7 +232,7 @@ class AddClaim extends Component {
 
   renderOfferedClaims() {
     const { certifiers, identity } = this.props
-    console.log(certifiers)
+    // console.log(certifiers)
     if (!certifiers || !certifiers.length) {
       return null
     }
@@ -282,9 +283,9 @@ class AddClaim extends Component {
     
     // create an auth system and deploy on firebase and link to this syste  m
     // using local host server for now 
-    var href2 = `http://localhost:3000?target=${
-      this.props.identity.address
-    }&issuer=${identity.address}`
+    // var href2 = `http://localhost:3000?target=${
+    //   this.props.identity.address
+    // }&issuer=${identity.address}`
 
     var w = window.open(href, '')
 

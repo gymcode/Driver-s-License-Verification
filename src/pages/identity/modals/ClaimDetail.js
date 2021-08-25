@@ -65,6 +65,7 @@ class ClaimDetail extends Component {
 
   render() {
     const { claim, hasKey } = this.state
+    console.log(claim, hasKey)
     if (!claim) {
       return null
     }
@@ -145,6 +146,14 @@ class ClaimDetail extends Component {
               label="Has Key?"
               info="Result of contract call: issuer.keyHasPurpose(hashOfRecoveredAddress, CLAIM_SIGNER)"
             >
+              {/* ICEEEEEEEE  */}
+              {/* <span
+                className={`font-weight-bold text-${
+                  hasKey ? 'danger' : 'success'
+                }`}
+              >
+                {hasKey ? 'No' : 'Yes'}
+              </span> */}
               <span
                 className={`font-weight-bold text-${
                   hasKey ? 'success' : 'danger'

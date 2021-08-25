@@ -66,7 +66,7 @@ class Event extends Component {
               // uri: 'https://identity.vboss.tech/fb-auth',
               uri: 'http://localhost:3000',
               icon: 'driver',
-              claimType: '9'
+              claimType: '6'
             },
             // {
             //   // uri: 'https://identity.vboss.tech/twitter-auth',

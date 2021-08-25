@@ -158,7 +158,7 @@ class IdentitySummary extends Component {
         <thead>
           <tr>
             <th>
-              Claims{this.props.isOwner && (
+              Claim{this.props.isOwner && (
                 <a
                   href="#"
                   className="ml-2"

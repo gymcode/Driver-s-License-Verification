@@ -53,6 +53,14 @@ class ValidateClaim extends Component {
       className: hasKey ? 'text-success' : 'text-danger',
       text: hasKey ? 'Valid' : 'Invalid'
     })
+
+    // ICEEEEEEEE
+
+    // this.setState({
+    //   icon: hasKey ? 'fa-times' : 'fa-check',
+    //   className: hasKey ? 'text-danger' : 'text-success',
+    //   text: hasKey ? 'Invalid' : 'Valid'
+    // })
   }
 
   render() {

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route, NavLink } from 'react-router-dom'
@@ -173,6 +174,14 @@ class ProtectedDetail extends Component {
                 {this.props.identity.names[verifier.trustedIdentity] ||
                   String(verifier.trustedIdentity).substr(0, 8)}
               </td>
+               {/* ICEEEEEEEE  */}
+              {/* <td className="text-center">
+                {evt.event === 'ClaimValid' ? (
+                  <span className="text-danger">Invalid <i className="fa fa-times" /></span>
+                ) : (
+                  <span className="text-success">Valid <i className="fa fa-check" /></span>
+                )}
+              </td> */}
               <td className="text-center">
                 {evt.event === 'ClaimValid' ? (
                   <span className="text-success">Valid <i className="fa fa-check" /></span>

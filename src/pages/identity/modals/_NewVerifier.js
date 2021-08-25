@@ -1,5 +1,5 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
-
 import Modal from 'components/Modal'
 import FormRow from 'components/FormRow'
 import Loading from 'components/Loading'
@@ -11,7 +11,7 @@ class NewVerifier extends Component {
     super(props)
     this.state = {
       name: '',
-      claimType: '10',
+      claimType: '6',
       trustedIdentity: props.identities[0] ? props.identities[0].address : '',
       methodName: ''
     }
