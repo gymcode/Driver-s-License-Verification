@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 
 import Modal from 'components/Modal'
@@ -118,7 +119,7 @@ class NewClaimIssuer extends Component {
         </a>
         <div className="d-flex mt-2">
           <button
-            className="btn btn-primary ml-auto"
+            className="btn btn-success ml-auto"
             onClick={() => this.onDeploy()}
           >
             Deploy
@@ -201,7 +202,7 @@ class NewClaimIssuer extends Component {
             Cancel
           </button>
           <button
-            className="btn btn-primary ml-2"
+            className="btn btn-success ml-2"
             onClick={() => {
               this.setState({
                 stage: 'main',

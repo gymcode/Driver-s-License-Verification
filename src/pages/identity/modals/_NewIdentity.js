@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 import RLP from 'rlp'
 
@@ -110,7 +111,7 @@ class NewIdentity extends Component {
 
           <div className="d-flex mt-2 align-items-center">
             <button
-              className="btn btn-primary ml-auto"
+              className="btn btn-success ml-auto"
               onClick={() => this.onImport()}
             >
               Import

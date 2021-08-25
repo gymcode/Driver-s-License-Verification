@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 
 import Modal from 'components/Modal'
@@ -34,7 +35,7 @@ class NewIdentity extends Component {
         <div className="mb-3">Are you sure?</div>
         <div className="text-right">
           <button
-            className="btn btn-primary"
+            className="btn btn-success"
             onClick={() => {
               this.props.approveExecution(
                 this.props.identity,

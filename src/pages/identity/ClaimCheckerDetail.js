@@ -120,7 +120,7 @@ class ProtectedDetail extends Component {
               <>
                 <div className="my-3">
                   <button
-                    className="btn btn-sm btn-outline-primary ml-1"
+                    className="btn btn-sm btn-outline-success ml-1"
                     onClick={() => this.setState({ checkClaim: true })}
                   >
                     {verifier.methodName || 'Check Claim via Contract'}

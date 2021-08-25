@@ -62,7 +62,7 @@ class Accounts extends Component {
                     <i className="fa fa-money" />
                   </button>
                   <button
-                    className={`btn btn-outline-primary btn-sm${
+                    className={`btn btn-outline-success btn-sm${
                       !balances[a] || balances[a].eth <= 0 ? ' disabled' : ''
                     }`}
                     onClick={() => this.setState({ transferFunds: a })}
@@ -154,7 +154,7 @@ class Accounts extends Component {
                 />
               </div>
               <button
-                className="btn btn-primary"
+                className="btn btn-success"
                 onClick={() => {
                   this.props.sendFromAccount(
                     this.state.transferFunds,
@@ -204,7 +204,7 @@ class Accounts extends Component {
               />
               <div className="input-group-append">
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-success"
                   onClick={() => {
                     this.props.importAccountFromKey(
                       `0x${this.privateKey.value}`

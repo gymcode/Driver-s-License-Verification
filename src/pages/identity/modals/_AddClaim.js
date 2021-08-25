@@ -208,7 +208,7 @@ class AddClaim extends Component {
           </tbody>
         </table>
         <div className="text-right mt-2">
-          <button className="btn btn-primary" onClick={() => this.onAddClaim()}>
+          <button className="btn btn-success" onClick={() => this.onAddClaim()}>
             Add Claim
           </button>
         </div>

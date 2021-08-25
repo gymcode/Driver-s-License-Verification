@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 
 import Modal from 'components/Modal'
@@ -132,7 +133,7 @@ class AddKey extends Component {
         </table>
         <div className="text-right">
           <button
-            className="btn btn-primary"
+            className="btn btn-success"
             onClick={() => {
               this.props.addKey({
                 purpose: this.state.keyPurpose,

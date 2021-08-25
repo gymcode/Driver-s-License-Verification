@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 
 import Modal from 'components/Modal'
@@ -60,7 +61,7 @@ class CheckClaim extends Component {
           </table>
           <div className="text-right">
             <button
-              className="btn btn-primary"
+              className="btn btn-success"
               onClick={() => {
                 this.setState({ submitted: true })
                 this.props.checkClaim(

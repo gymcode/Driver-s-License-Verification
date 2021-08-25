@@ -34,7 +34,7 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
           // },
           {
             uri: `http://localhost:3000`,
-            icon: 'linkedin',
+            icon: 'car',
             claimType: '6'
           }
         ]
@@ -57,7 +57,7 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
           // },
           {
             uri: `$http://localhost:3000`,
-            icon: 'linkedin',
+            icon: 'car',
             claimType: '6'
           }
         ]
