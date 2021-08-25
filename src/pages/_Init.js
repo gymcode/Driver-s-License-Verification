@@ -14,6 +14,7 @@ class Event extends Component {
     this.stage = 0
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps) {
     var nodeAccounts = nextProps.network.accounts,
       walletAccounts = nextProps.wallet.accounts,
@@ -29,22 +30,22 @@ class Event extends Component {
     ) {
       window.localStorage.clear()
       this.props.reset()
-      this.next('✔ 1. Add some balance to account 1...')
+      this.next('✔ 1. Adding some balance to account 1...')
       setTimeout(() => {
         this.props.sendFromNode(nodeAccounts[0].hash, walletAccounts[0], '2')
       }, 500)
     } else if (this.stage === 1 && balances[walletAccounts[1]].eth === '0') {
-      this.next('✔ 2. Add some balance to account 2...')
+      this.next('✔ 2. Adding some balance to account 2...')
       setTimeout(() => {
         this.props.sendFromNode(nodeAccounts[0].hash, walletAccounts[1], '2')
       }, 500)
     } else if (this.stage === 2 && balances[walletAccounts[2]].eth === '0') {
-      this.next('✔ 3. Add some balance to account 3...')
+      this.next('✔ 3. Adding some balance to account 3...')
       setTimeout(() => {
         this.props.sendFromNode(nodeAccounts[0].hash, walletAccounts[2], '2')
       }, 500)
     } else if (this.stage === 3 && balances[walletAccounts[2]].eth === '0') {
-      this.next('✔ 4. Add License_Issuer certifier...')
+      this.next('✔ 4. Initiating License_Issuer certifier...')
       setTimeout(() => {
         this.props.selectAccount(walletAccounts[1])
         this.props.deployIdentityContract(
@@ -65,7 +66,7 @@ class Event extends Component {
               // uri: 'https://identity.vboss.tech/fb-auth',
               uri: 'http://localhost:3000',
               icon: 'driver',
-              claimType: '6'
+              claimType: '9'
             },
             // {
             //   // uri: 'https://identity.vboss.tech/twitter-auth',
@@ -79,12 +80,12 @@ class Event extends Component {
             //   icon: 'github',
             //   claimType: '5'
             // },
-            {
-              // uri: 'https://identity.vboss.tech/google-auth',
-              uri: 'https://erc725.originprotocol.com/google-auth',
-              icon: 'google',
-              claimType: '6'
-            },
+            // {
+            //   // uri: 'https://identity.vboss.tech/google-auth',
+            //   uri: 'https://erc725.originprotocol.com/google-auth',
+            //   icon: 'google',
+            //   claimType: '6'
+            // },
             // {
             //   // uri: 'https://identity.vboss.tech/linkedin-auth',
             //   uri: 'https://erc725.originprotocol.com/linkedin-auth',
@@ -99,7 +100,7 @@ class Event extends Component {
       this.props.createIdentityResponse !== 'success' &&
       nextProps.createIdentityResponse === 'success'
     ) {
-      this.next('✔ 5. Add Claim Signer key...')
+      this.next('✔ 5. Appending Claim Signer key...')
       setTimeout(() => {
         var fb = this.props.identity.identities.find(i => i.name === 'License_Issuer')
         this.props.addKey({
@@ -115,7 +116,7 @@ class Event extends Component {
       this.props.addKeyResponse !== 'success' &&
       nextProps.addKeyResponse === 'success'
     ) {
-      this.next('Done!')
+      this.next('Complete!!!!!')
       this.props.selectAccount(walletAccounts[0])
       setTimeout(() => {
         this.setState({ shouldClose: true })
@@ -144,7 +145,7 @@ class Event extends Component {
         style={{ maxWidth: 375 }}
       >
         <div className="p-3">
-          <h4>Initialize</h4>
+          <h4 className={""}>Starting Up</h4>
           {this.state.logs.map((log, idx) => <div key={idx}>{log}</div>)}
         </div>
       </Modal>

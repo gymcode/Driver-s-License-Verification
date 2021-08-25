@@ -54,6 +54,7 @@ export default class Modal extends Component {
     return null
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps) {
     if (!this.props.shouldClose && nextProps.shouldClose) {
       this.doClose()

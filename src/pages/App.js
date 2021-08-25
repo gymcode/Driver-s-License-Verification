@@ -1,10 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route,} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Console from './console'
 import Identity from './identity'
-import Versions from './_Versions'
+// import Versions from './_Versions'
 import Init from './_Init'
 
 import { init } from 'actions/Network'

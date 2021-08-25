@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 var driver = new Driver();
 window.driver = driver;

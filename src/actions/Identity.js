@@ -57,7 +57,7 @@ export const Schemes = [
 export const scheme = lookup(Schemes)
 
 export const ClaimTypes = [
-  { id: '12', value: 'Driver\'s License'},
+  { id: '9', value: 'Has Driver\'s License'},
   // { id: '8', value: 'Email' },
   // { id: '3', value: 'Has Driver\'s License' },
   // // { id: '4', value: 'Has Twitter' },

@@ -2,7 +2,7 @@ let waitLastDeploy = Promise.resolve()
 let waitLastAddKey = Promise.resolve()
 
 export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
-  console.log(oauthLink)
+  console.log(oauthLink, "forver")
   waitLastDeploy = waitLastDeploy.then(
     () =>
       new Promise(resolve => {
@@ -12,11 +12,11 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
           //   icon: 'driver',
           //   claimType: '12'
           // },
-          {
-            uri: `${oauthLink}/fb-auth`,
-            icon: 'facebook',
-            claimType: '3'
-          },
+          // {
+          //   uri: `${oauthLink}/fb-auth`,
+          //   icon: 'facebook',
+          //   claimType: '3'
+          // },
           // {
           //   uri: `${oauthLink}/twitter-auth`,
           //   icon: 'twitter',
@@ -27,13 +27,13 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
           //   icon: 'github',
           //   claimType: '5'
           // },
+          // {
+          //   uri: `${oauthLink}/google-auth`,
+          //   icon: 'google',
+          //   claimType: '6'
+          // },
           {
-            uri: `${oauthLink}/google-auth`,
-            icon: 'google',
-            claimType: '6'
-          },
-          {
-            uri: `${oauthLink}/linkedin-auth`,
+            uri: `http://localhost:3000`,
             icon: 'linkedin',
             claimType: '9'
           }
@@ -45,18 +45,18 @@ export const callDeploy = (deployIdentityContract, issuerName, oauthLink) => {
           //   icon: 'twitter',
           //   claimType: '4'
           // },
+          // {
+          //   uri: `${oauthLink}/driver-auth`,
+          //   icon: 'driver',
+          //   claimType: '12'
+          // },
+          // {
+          //   uri: `${oauthLink}/google-auth`,
+          //   icon: 'google',
+          //   claimType: '6'
+          // },
           {
-            uri: `${oauthLink}/driver-auth`,
-            icon: 'driver',
-            claimType: '12'
-          },
-          {
-            uri: `${oauthLink}/google-auth`,
-            icon: 'google',
-            claimType: '6'
-          },
-          {
-            uri: `${oauthLink}/linkedin-auth`,
+            uri: `$http://localhost:3000`,
             icon: 'linkedin',
             claimType: '9'
           }

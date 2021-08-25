@@ -286,7 +286,7 @@ class AddClaim extends Component {
       this.props.identity.address
     }&issuer=${identity.address}`
 
-    var w = window.open(href, '', 'width=950,height=800')
+    var w = window.open(href, '')
 
     const finish = e => {
       console.log(e.data)
