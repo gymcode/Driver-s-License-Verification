@@ -146,7 +146,7 @@ class ClaimDetail extends Component {
               label="Has Key?"
               info="Result of contract call: issuer.keyHasPurpose(hashOfRecoveredAddress, CLAIM_SIGNER)"
             >
-              {/* ICEEEEEEEE  */}
+              {/* ICEEEEEEEE only the origin man will knowwww what i meaaaannnnn  */}
               {/* <span
                 className={`font-weight-bold text-${
                   hasKey ? 'danger' : 'success'
