@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-target-blank */
+/* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
@@ -68,9 +70,22 @@ class Identity extends Component {
               <thead>
                 <tr>
                   <th className="">
-                    <div className={"d-flex"}>
-                     <MdPermIdentity size={22}/> <div className={"pl-2"}>License Holder</div> 
-                    </div>
+                    <a
+                        href="#"
+                        style={{color: "#000"}}
+                        className={"text-decoration-none"}
+                        onClick={e => {
+                          e.preventDefault()
+                          this.setState({
+                            identityType: 'identity',
+                            deploy: true
+                          })
+                        }}
+                    >   
+                      <div className={'d-flex mt-3'}>
+                        <MdPermIdentity size={22}/> <div className={"pl-2"}>License Holder</div> 
+                      </div>
+                    </a>
                     {/* {!identities.length ? null : (
                       <a
                         href="#"
