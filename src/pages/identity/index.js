@@ -281,9 +281,19 @@ class Identity extends Component {
               <thead>
                 <tr>
                   <th>
-                    <div className={"d-flex mt-4"}>
-                      <VscUnverified size={22}/> <div className={"pl-2"}>Claim Verifier(Police) </div>
-                    </div>
+                    <a
+                      href="#" 
+                      style={{color: "#000"}}
+                      className={"text-decoration-none"}
+                      onClick={e => {
+                        e.preventDefault()
+                        this.setState({ newVerifier: true })
+                      }}
+                    >
+                      <div className={"d-flex mt-4"}>
+                        <VscUnverified size={22}/> <div className={"pl-2"}>Claim Verifier(Police) </div>
+                      </div>
+                    </a>
                     {/* {!this.props.verifiers.length ? null : (
                       <a
                         href="#"
