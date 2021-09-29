@@ -81,6 +81,13 @@ class Identity extends Component {
                             deploy: true
                           })
                         }}
+                        // onClick={e => {
+                        //   e.preventDefault()
+                        //   this.setState({
+                        //     identityType: 'identity',
+                        //     deploy: true
+                        //   })
+                        // }}
                     >   
                       <div className={'d-flex mt-3'}>
                         <MdPermIdentity size={22}/> <div className={"pl-2"}>License Holder</div> 
