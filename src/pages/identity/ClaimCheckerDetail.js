@@ -182,9 +182,10 @@ class ProtectedDetail extends Component {
                   <span className="text-success">Valid <i className="fa fa-check" /></span>
                 )}
               </td> */}
+              {console.log("this is me" + evt)}
               <td className="text-center">
-                {evt.event === 'ClaimValid' ? (
-                  <span className="text-success">Valid <i className="fa fa-check" /></span>
+                {evt.event === 'ClaimValid'  ? (
+                  <span className="text-success">Valid<i className="fa fa-check" /></span>
                 ) : (
                   <span className="text-danger">Invalid <i className="fa fa-times" /></span>
                 )}
