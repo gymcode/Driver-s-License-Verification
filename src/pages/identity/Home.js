@@ -25,7 +25,7 @@ class Home extends Component {
         </div>
         <div className="mb-2">
           <div className="font-weight-bold">Claim</div>
-          {/* Some data on one Identity that provably came from another Identity.An individual has the right Driver's License */}
+          
           Claim: User/ Driver has a valid Driver's License
         </div>
       </div>
